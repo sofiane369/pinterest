@@ -1,186 +1,207 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Générateur de bouton Pinterest</title>
-  <style>
-    :root {
-      --primary: #e60023;
-      --background: #f4f6f8;
-      --white: #ffffff;
-      --gray: #444;
-      --border: #ddd;
-      --success: #2e7d32;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Générateur de bouton Pinterest</title>
+    <style>
+        :root {
+            --primary: #e60023;
+            --background: #f4f6f8;
+            --white: #ffffff;
+            --gray: #444;
+            --border: #ddd;
+            --success: #2e7d32;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background);
-      color: var(--gray);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-    .container {
-      background-color: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      max-width: 700px;
-      width: 100%;
-    }
+        .container {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+        }
 
-    h1 {
-      text-align: center;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
 
-    label {
-      display: block;
-      font-weight: 600;
-      margin: 1rem 0 0.5rem;
-    }
+        label {
+            display: block;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+        }
 
-    input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
 
-    textarea {
-      resize: vertical;
-      height: 160px;
-      margin-bottom: 0.5rem;
-    }
+        textarea {
+            resize: vertical;
+            height: 160px;
+            margin-bottom: 0.5rem;
+        }
 
-    .btn {
-      display: inline-block;
-      background-color: var(--primary);
-      color: var(--white);
-      border: none;
-      padding: 0.6rem 1.2rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-    .btn:hover {
-      background-color: #c4001b;
-    }
+        .btn:hover {
+            background-color: #c4001b;
+        }
 
-    .copy-msg {
-      font-size: 0.85rem;
-      color: var(--success);
-      display: none;
-      margin-top: 0.2rem;
-    }
+        .copy-msg {
+            font-size: 0.85rem;
+            color: var(--success);
+            display: none;
+            margin-top: 0.2rem;
+        }
 
-    .output-section {
-      margin-top: 2rem;
-    }
+        .output-section {
+            margin-top: 2rem;
+        }
 
-    .output-section h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-      color: #222;
-    }
+        .output-section h2 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #222;
+        }
 
-    .note {
-      font-size: 0.9rem;
-      margin-top: 1rem;
-      text-align: center;
-      color: #999;
-    }
-  </style>
+        .note {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
+            color: #999;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Générateur de bouton Pinterest</h1>
+    <div class="container">
+        <h1>Générateur de bouton Pinterest</h1>
 
-    <label for="postUrl">URL du post (sans UTM)</label>
-    <input type="text" id="postUrl" placeholder="https://tonsite.com/nom-du-post">
+        <label for="postUrl">URL du post (sans UTM)</label>
+        <input type="text" id="postUrl" placeholder="https://tonsite.com/nom-du-post">
 
-    <label for="imageUrl">Lien vers l'image</label>
-    <input type="text" id="imageUrl" placeholder="https://tonsite.com/images/image.jpg">
+        <label for="imageUrl">Lien vers l'image</label>
+        <input type="text" id="imageUrl" placeholder="https://tonsite.com/images/image.jpg">
 
-    <button class="btn" onclick="genererCode()">Générer le code HTML</button>
+        <label for="pinDescription">Description de l'épingle (Excerpt)</label>
+        <input type="text" id="pinDescription" placeholder="un résumé court et pertinent de l'épingle">
 
-    <div class="output-section">
-      <h2>🎯 Code du bouton Pinterest :</h2>
-      <textarea id="resultatButton" readonly placeholder="Le code apparaîtra ici..."></textarea>
-      <button class="btn" onclick="copier('resultatButton', 'msg1')">Copier</button>
-      <div id="msg1" class="copy-msg">✔ Copié !</div>
+        <button class="btn" onclick="genererCode()">Générer le code HTML</button>
 
-      <h2>🧩 Balise meta Pinterest pour &lt;head&gt; :</h2>
-      <textarea id="resultatMeta" readonly placeholder="La balise meta apparaîtra ici..."></textarea>
-      <button class="btn" onclick="copier('resultatMeta', 'msg2')">Copier</button>
-      <div id="msg2" class="copy-msg">✔ Copié !</div>
+        <div class="output-section">
+            <h2>🎯 Code du bouton Pinterest :</h2>
+            <textarea id="resultatButton" readonly placeholder="Le code apparaîtra ici..."></textarea>
+            <button class="btn" onclick="copier('resultatButton', 'msg1')">Copier</button>
+            <div id="msg1" class="copy-msg">✔ Copié !</div>
+
+            <h2>🧩 Balise meta Pinterest pour &lt;head&gt; :</h2>
+            <textarea id="resultatMeta" readonly placeholder="La balise meta apparaîtra ici..."></textarea>
+            <button class="btn" onclick="copier('resultatMeta', 'msg2')">Copier</button>
+            <div id="msg2" class="copy-msg">✔ Copié !</div>
+        </div>
+
+        <div class="note">Les deux codes sont prêts à être insérés dans ton site !</div>
     </div>
 
-    <div class="note">Les deux codes sont prêts à être insérés dans ton site !</div>
-  </div>
+    <script>
+        function genererCode() {
+            const postUrl = document.getElementById('postUrl').value.trim();
+            const imageUrl = document.getElementById('imageUrl').value.trim();
+            const pinDescription = document.getElementById('pinDescription').value.trim();
+            const resultatButton = document.getElementById('resultatButton');
+            const resultatMeta = document.getElementById('resultatMeta');
 
-  <script>
-    function genererCode() {
-      const postUrl = document.getElementById('postUrl').value.trim();
-      const imageUrl = document.getElementById('imageUrl').value.trim();
-      const resultatButton = document.getElementById('resultatButton');
-      const resultatMeta = document.getElementById('resultatMeta');
+            if (!postUrl || !imageUrl) {
+                alert("Merci de remplir les deux champs.");
+                return;
+            }
 
-      if (!postUrl || !imageUrl) {
-        alert("Merci de remplir les deux champs.");
-        return;
-      }
+            const imageUrlObj = new URL(imageUrl);
+            const pathname = imageUrlObj.pathname; // "/images/photo.jpg"
+            const filename = pathname.split('/').pop(); // "photo.jpg"
+            const imageName = filename.split('.')[0];   // "photo"
 
-      const imageName = imageUrl.split('/').pop().split('.')[0];
-      const fullUrl = `${postUrl}?utm_source=pinterest&utm_medium=social&utm_campaign=save-button&utm_content=${imageName}`;
+            // Crée un objet URL
+            const fullUrlObj = new URL(postUrl);
 
-      const buttonHtml = `<a 
+            // Ajoute les paramètres UTM de manière propre
+            fullUrlObj.searchParams.set("utm_source", "pinterest");
+            fullUrlObj.searchParams.set("utm_medium", "social");
+            fullUrlObj.searchParams.set("utm_campaign", "save-button");
+            fullUrlObj.searchParams.set("utm_content", imageName);
+
+            // Obtenir l'URL finale avec UTM
+            const fullUrl = fullUrlObj.toString();
+
+            const buttonHtml = `<a 
   data-pin-do="buttonPin"
   data-pin-tall="true"
   href="https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(fullUrl)}&media=${encodeURIComponent(imageUrl)}"
-  data-pin-description=""
+  data-pin-description="${pinDescription}"
   rel="noopener noreferrer"
 >
   <img src="https://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_20.png" alt="ثبت على Pinterest" />
-</a>
+</a>`;
 
-<script async defer src="//assets.pinterest.com/js/pinit.js"></script>`;
+            const metaHtml = `
+    <meta name="pinterest:image" content="${imageUrl}">`;
 
-      const metaHtml = `<meta name="pinterest:image" content="${imageUrl}">`;
+            resultatButton.value = buttonHtml;
+            resultatMeta.value = metaHtml;
 
-      resultatButton.value = buttonHtml;
-      resultatMeta.value = metaHtml;
+            // Réinitialiser les messages de copie
+            document.getElementById('msg1').style.display = 'none';
+            document.getElementById('msg2').style.display = 'none';
+        }
 
-      // Réinitialiser les messages de copie
-      document.getElementById('msg1').style.display = 'none';
-      document.getElementById('msg2').style.display = 'none';
-    }
+        function copier(id, msgId) {
+            const textArea = document.getElementById(id);
+            textArea.select();
+            textArea.setSelectionRange(0, 99999); // pour mobile
+            document.execCommand("copy");
 
-    function copier(id, msgId) {
-      const textArea = document.getElementById(id);
-      textArea.select();
-      textArea.setSelectionRange(0, 99999); // pour mobile
-      document.execCommand("copy");
-
-      const msg = document.getElementById(msgId);
-      msg.style.display = "inline";
-      setTimeout(() => { msg.style.display = "none"; }, 1500);
-    }
-  </script>
+            const msg = document.getElementById(msgId);
+            msg.style.display = "inline";
+            setTimeout(() => { msg.style.display = "none"; }, 1500);
+        }
+    </script>
 
 </body>
+
 </html>
